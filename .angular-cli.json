@@ -38,6 +38,32 @@
       "tags": []
     },
     {
+      "name": "logs",
+      "root": "apps/logs/src",
+      "outDir": "dist/apps/logs",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      },
+      "tags": []
+    },
+    {
       "name": "reporting",
       "root": "apps/reporting/src",
       "outDir": "dist/apps/reporting",
@@ -142,6 +168,14 @@
     },
     {
       "project": "apps/reporting/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/logs/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/logs/e2e/tsconfig.e2e.json",
       "exclude": "**/node_modules/**"
     }
   ],
