@@ -36,7 +36,9 @@ export class SearchTicketsComponent implements OnInit, OnDestroy {
     this.assignedToUser.patchValue(value, { emitEvent: false });
   }
 
-  submit() {}
+  submit() {
+    this.searchResults$ = this.ticketService.searchTickets(this.searchTerm.value, this.assignedToUser.value);
+  }
 }
 
 interface SearchResult {
