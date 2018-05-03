@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'logs-list',
+  selector: 'app-logs-list',
   templateUrl: './logs-list.component.html',
   styleUrls: ['./logs-list.component.scss']
 })
 export class LogsListComponent implements OnInit {
+  logs: { message: string }[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.logs = [{ message: 'log one' }, { message: 'log two' }];
   }
-
 }

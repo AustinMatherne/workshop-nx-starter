@@ -4,12 +4,7 @@ import { RouterModule } from '@angular/router';
 import { LogsListComponent } from './logs-list/logs-list.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
-    ])
-  ],
+  imports: [CommonModule, RouterModule.forChild([{ path: '', pathMatch: 'full', component: LogsListComponent }])],
   declarations: [LogsListComponent]
 })
 export class LogsViewModule {}
