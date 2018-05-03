@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { LogsRootActions, LogsRootActionTypes, LoadLogsRoot, LogsRootLoaded } from './logs-root.actions';
+import { LogsRootActionTypes, LoadLogsRoot, LogsRootLoaded } from './logs-root.actions';
 import { LogsRootState } from './logs-root.reducer';
 import { DataPersistence } from '@nrwl/nx';
+import { mergeMap, map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import { LogService } from '@tuskdesk-suite/logs-backend';
 
 @Injectable()
 export class LogsRootEffects {
-  @Effect() effect$ = this.actions$.ofType(LogsRootActionTypes.LogsRootAction);
-
   @Effect()
-  loadLogsRoot$ = this.dataPersistence.fetch(LogsRootActionTypes.LoadLogsRoot, {
-    run: (action: LoadLogsRoot, state: LogsRootState) => {
-      return new LogsRootLoaded(state);
-    },
+  effect$ = this.actions$.ofType(LogsRootActionTypes.LoadLogsRoot).pipe(
+    mergeMap(action => {
+      return this.logsService.logs().pipe(map(logs => new LogsRootLoaded(logs)), catchError(_ => of(null)));
+    })
+  );
 
-    onError: (action: LoadLogsRoot, error) => {
-      console.error('Error', error);
-    }
-  });
-
-  constructor(private actions$: Actions, private dataPersistence: DataPersistence<LogsRootState>) {}
+  constructor(
+    private actions$: Actions,
+    private dataPersistence: DataPersistence<LogsRootState>,
+    private logsService: LogService
+  ) {}
 }
