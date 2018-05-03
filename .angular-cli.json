@@ -116,6 +116,13 @@
       "tags": []
     },
     {
+      "name": "logs-backend",
+      "root": "libs/logs-backend/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "reporting-dashboard-view",
       "root": "libs/reporting-dashboard-view/src",
       "test": "../../../test.js",
