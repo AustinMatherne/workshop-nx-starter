@@ -19,6 +19,6 @@ export class TicketListComponent implements OnInit {
   ngOnInit() {
     this.tickets$ = this.store
       .select(s => s.ticketsStateModel.tickets)
-      .pipe(map(tickets => tickets.filter(ticket => ticket.status === 'open')));
+      .pipe(map(tickets => Object.values(tickets).filter(ticket => ticket.status === 'open')));
   }
 }

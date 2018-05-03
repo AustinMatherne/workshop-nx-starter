@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TicketsStateModelState } from '@tuskdesk-suite/tickets-state';
 import { ActivatedRoute } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { Ticket, TicketComment } from '@tuskdesk-suite/data-models';
 import { FormControl } from '@angular/forms';
@@ -25,9 +25,7 @@ export class TicketDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id = +params['id'];
       this.store.dispatch({ type: 'LOAD_TICKET', payload: id });
-      this.ticket$ = this.store
-        .select(s => s.ticketsStateModel.tickets)
-        .pipe(map(tickets => tickets.find(ticket => ticket.id === id)));
+      this.ticket$ = this.store.select(s => s.ticketsStateModel.tickets).pipe(map(tickets => tickets[id]));
     });
   }
 
