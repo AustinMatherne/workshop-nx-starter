@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { EventLog } from '@tuskdesk-suite/data-models';
 
 export enum LogsRootActionTypes {
   LogsRootAction = '[LogsRoot] Action',
@@ -16,7 +17,7 @@ export class LoadLogsRoot implements Action {
 
 export class LogsRootLoaded implements Action {
   readonly type = LogsRootActionTypes.LogsRootLoaded;
-  constructor(public payload: any) {}
+  constructor(public payload: EventLog[]) {}
 }
 
 export type LogsRootActions = LogsRoot | LoadLogsRoot | LogsRootLoaded;
