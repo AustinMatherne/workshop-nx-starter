@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
@@ -11,25 +11,16 @@ import { User } from '@tuskdesk-suite/data-models';
   templateUrl: './search-tickets.component.html',
   styleUrls: ['./search-tickets.component.scss']
 })
-export class SearchTicketsComponent implements OnInit, OnDestroy {
+export class SearchTicketsComponent implements OnInit {
   searchTerm = new FormControl();
   assignedToUser = new FormControl();
   searchResults$: Observable<SearchResult[]>;
-  users: User[] = [];
-  subscription: Subscription;
+  users: Observable<User[]>;
 
   constructor(private ticketService: TicketService, private userService: UserService) {}
 
   ngOnInit() {
-    this.subscription = this.assignedToUser.valueChanges
-      .pipe(switchMap(val => this.userService.users(val)))
-      .subscribe(users => {
-        this.users = users;
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.users = this.assignedToUser.valueChanges.pipe(switchMap(val => this.userService.users(val)));
   }
 
   setAssignedToUser(value) {
