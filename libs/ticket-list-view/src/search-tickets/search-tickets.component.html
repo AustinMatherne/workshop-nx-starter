@@ -9,8 +9,8 @@
       <input type="text" name="assignedToUser" [formControl]="assignedToUser">
     </label>
     <ul>
-      <li *ngFor="let user of (users | async)" (click)="setAssignedToUser('name')">
-        {{user.fullName}}
+      <li *ngFor="let userFullName of (users$ | async)" (click)="setAssignedToUser(userFullName)">
+        {{userFullName}}
       </li>
     </ul>
   </div>
