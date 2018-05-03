@@ -15,7 +15,8 @@
     "format": "./node_modules/.bin/nx format write",
     "format:write": "./node_modules/.bin/nx format write",
     "format:check": "./node_modules/.bin/nx format check",
-    "legacy-agent-workdesk": "live-server ./legacy/agent-workdesk/app --host=localhost --port=8000 --entry-file=index.html --quiet",
+    "legacy-agent-workdesk":
+      "live-server ./legacy/agent-workdesk/app --host=localhost --port=8000 --entry-file=index.html --quiet",
     "server": "tsc -p ./server && node dist/server/server.js",
     "server:throttled": "tsc -p ./server && node dist/server/server.js --throttle",
     "reporting": "ng serve --proxy-config=proxy.config.json -a=reporting -p=4202",
@@ -26,7 +27,8 @@
     "update:skip": "./node_modules/.bin/nx update skip",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "affected:dep-graph": "./node_modules/.bin/nx affected dep-graph",
-    "workspace-schematic": "./node_modules/.bin/nx workspace-schematic"
+    "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
+    "logs": "ng serve --proxy-config=proxy.config.json -a=logs -p=4204"
   },
   "private": true,
   "dependencies": {
