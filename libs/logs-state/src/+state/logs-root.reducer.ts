@@ -29,7 +29,7 @@ export function logsRootReducer(state = initialState, action: LogsRootActions): 
       return state;
 
     case LogsRootActionTypes.LogsRootLoaded: {
-      return { ...state, ...action.payload };
+      return { ...state, eventLogs: action.payload };
     }
 
     default:
