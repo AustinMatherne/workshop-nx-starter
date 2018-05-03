@@ -116,6 +116,13 @@
       "root": "libs/tickets-state/src",
       "test": "../../../test.js",
       "tags": []
+    },
+    {
+      "name": "until-destroyed",
+      "root": "libs/until-destroyed/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
     }
   ],
   "e2e": {
