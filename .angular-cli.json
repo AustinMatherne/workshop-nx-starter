@@ -123,6 +123,13 @@
       "tags": []
     },
     {
+      "name": "logs-view",
+      "root": "libs/logs-view/src",
+      "test": "../../../test.js",
+      "appRoot": "",
+      "tags": []
+    },
+    {
       "name": "reporting-dashboard-view",
       "root": "libs/reporting-dashboard-view/src",
       "test": "../../../test.js",
