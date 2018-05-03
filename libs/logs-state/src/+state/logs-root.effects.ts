@@ -16,6 +16,17 @@ export class LogsRootEffects {
     })
   );
 
+  // @Effect()
+  // loadLogsRoot$ = this.dataPersistence.fetch(LogsRootActionTypes.LoadLogsRoot, {
+  //   run: (action: LoadLogsRoot, state: LogsRootState) => {
+  //     return new LogsRootLoaded(state);
+  //   },
+
+  //   onError: (action: LoadLogsRoot, error) => {
+  //     console.error('Error', error);
+  //   }
+  // });
+
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<LogsRootState>,

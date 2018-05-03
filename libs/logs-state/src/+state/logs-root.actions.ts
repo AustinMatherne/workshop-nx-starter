@@ -12,7 +12,6 @@ export class LogsRoot implements Action {
 }
 export class LoadLogsRoot implements Action {
   readonly type = LogsRootActionTypes.LoadLogsRoot;
-  constructor(public payload: any) {}
 }
 
 export class LogsRootLoaded implements Action {
